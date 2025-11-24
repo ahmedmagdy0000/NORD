@@ -1319,7 +1319,7 @@ fi
 
 ## 🏢 About DevMonix Technologies
 
-**DevMonix Technologies** is a leading cybersecurity solutions provider, specializing in custom software solutions and DevOps services for enterprise security:
+**DevMonix Technologies** is a leading cybersecurity solutions provider, specializing in custom software solutions, cyber security solutions and DevOps services for enterprise security:
 
 - 🔒 **Enterprise Security Solutions**
 - 🛡️ **Threat Detection Systems** 
