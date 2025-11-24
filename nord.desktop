@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=NORD Security System (DevMonix)
+Comment=Enterprise-grade Security Tool for Parrot OS by DevMonix Technologies
+Exec=nord status
+Icon=security-high
+Terminal=true
+Categories=Security;System;Network;
+Keywords=security;monitoring;defense;protection;parrot;
+StartupNotify=true
+StartupWMClass=NORD

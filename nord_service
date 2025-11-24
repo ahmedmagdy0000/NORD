@@ -1,0 +1,108 @@
+#!/bin/bash
+# NORD Security Service Management Script
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SHIELD_SCRIPT="$SCRIPT_DIR/nord.py"
+SERVICE_NAME="nord"
+
+case "$1" in
+    start)
+        echo "Starting NORD Security service..."
+        if command -v systemctl >/dev/null 2>&1; then
+            sudo systemctl start $SERVICE_NAME
+        else
+            # Fallback to nohup for systems without systemd
+            nohup python3 $SHIELD_SCRIPT start > /dev/null 2>&1 &
+            echo $! > /tmp/nord.pid
+            echo "NORD Security started in background (PID: $(cat /tmp/nord.pid))"
+        fi
+        ;;
+        
+    stop)
+        echo "Stopping NORD Security service..."
+        if command -v systemctl >/dev/null 2>&1; then
+            sudo systemctl stop $SERVICE_NAME
+        else
+            if [ -f /tmp/nord.pid ]; then
+                kill $(cat /tmp/nord.pid) 2>/dev/null
+                rm -f /tmp/nord.pid
+                echo "NORD Security stopped"
+            else
+                echo "NORD Security is not running"
+            fi
+        fi
+        ;;
+        
+    restart)
+        echo "Restarting NORD Security service..."
+        $0 stop
+        sleep 2
+        $0 start
+        ;;
+        
+    status)
+        if command -v systemctl >/dev/null 2>&1; then
+            sudo systemctl status $SERVICE_NAME
+        else
+            if [ -f /tmp/nord.pid ]; then
+                PID=$(cat /tmp/nord.pid)
+                if kill -0 $PID 2>/dev/null; then
+                    echo "NORD Security is running (PID: $PID)"
+                else
+                    echo "NORD Security PID file exists but process not found"
+                    rm -f /tmp/nord.pid
+                fi
+            else
+                echo "NORD Security is not running"
+            fi
+        fi
+        ;;
+        
+    enable)
+        echo "Enabling NORD Security service on boot..."
+        if command -v systemctl >/dev/null 2>&1; then
+            sudo systemctl enable $SERVICE_NAME
+            echo "NORD Security will start automatically on boot"
+        else
+            echo "Systemd not available. Add to startup scripts manually"
+        fi
+        ;;
+        
+    disable)
+        echo "Disabling NORD Security service on boot..."
+        if command -v systemctl >/dev/null 2>&1; then
+            sudo systemctl disable $SERVICE_NAME
+            echo "NORD Security will not start automatically on boot"
+        else
+            echo "Systemd not available"
+        fi
+        ;;
+        
+    logs)
+        echo "Showing NORD Security logs..."
+        if command -v systemctl >/dev/null 2>&1; then
+            sudo journalctl -u $SERVICE_NAME -f
+        else
+            LOG_DIR="$HOME/.nord_security/logs"
+            if [ -d "$LOG_DIR" ]; then
+                tail -f "$LOG_DIR"/nord_*.log
+            else
+                echo "Log directory not found: $LOG_DIR"
+            fi
+        fi
+        ;;
+        
+    *)
+        echo "Usage: $0 {start|stop|restart|status|enable|disable|logs}"
+        echo ""
+        echo "Commands:"
+        echo "  start    - Start NORD Security service"
+        echo "  stop     - Stop NORD Security service"
+        echo "  restart  - Restart NORD Security service"
+        echo "  status   - Show service status"
+        echo "  enable   - Enable auto-start on boot"
+        echo "  disable  - Disable auto-start on boot"
+        echo "  logs     - Show live logs"
+        exit 1
+        ;;
+esac
